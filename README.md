@@ -10,7 +10,7 @@ Now, before I get deep into  microservices, let's look at the loose ends of the 
 In layman's terms, you can say that the monolithic architecture is similar to a big container wherein all the software components of an application are assembled together and tightly packaged.
 <p/>
 
-![image](https://github.com/ffebiri/Test/blob/master/Mono.png)
+![Monolithic](https://github.com/ffebiri/Test/blob/master/Mono.png)
 ___
 #### Challenges with the Monolithic Architecture ####
 
@@ -43,7 +43,7 @@ In this writeup we will define microservice as *an architectural style that stru
 #### Typical Microservices 
 ---
 
-![image](https://github.com/ffebiri/Test/blob/master/Micros.png )
+![Microservices](https://github.com/ffebiri/Test/blob/master/Micros.png )
 ___
 
 ### Structure of Microservice
@@ -54,7 +54,8 @@ ___
 
 >* Microservice as an autonomouse unit
 
-![image](https://github.com/ffebiri/Test/blob/master/Microservice.PNG)
+![Microservice](https://github.com/ffebiri/Test/blob/master/Microservice.PNG)
+
 (Keeping Things Really Simple) 
 * API level can be inferred in the program as MVC going to controller. Again it is the only part of the microservice visible on the outside.
 * BL - The work that needs to be programmed (connection to DB)
@@ -83,7 +84,7 @@ Enterprises are increasingly adopting containers when implementing microservice 
 
 ---
 
-![image](https://github.com/ffebiri/Test/blob/master/async.PNG)
+![Asynchronous](https://github.com/ffebiri/Test/blob/master/async.PNG)
 ---
 ### KEY ISSUES 
 >* The question that is likely unanswered at this point is What happens if one service needs some real time data from another service?
@@ -208,6 +209,7 @@ public IConfiguration Configuration { get; }
 
 ```
 >*  This section will be dicussed in more detailed in the next documentation
+
 ### Configure Services
 
 ```
