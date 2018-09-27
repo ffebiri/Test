@@ -369,6 +369,7 @@ The `Configure` method is used to specify the order the app responds to HTTP req
 Our startup class will therefore look like this..
 
 >**Startup.cs**
+
 ```
     using System.Text;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -437,7 +438,6 @@ Our startup class will therefore look like this..
             }
         }
     }
-
 ```
 
 
