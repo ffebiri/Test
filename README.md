@@ -63,7 +63,10 @@ ___
 
 ___
 
->  **Points to note at this level**
+**Points to note at this level**
+
+Enterprises are increasingly adopting containers when implementing microservice based applications,  and Docker has become the standard container implementation that has been adopted by most   software platforms and cloud vendors.
+
 > > * As mentioned above, the API is the only visible part from outside (You can only call the API)
 > > * What we want at this point is  to containerised this service, to do that in Docker, we will rap bubbles around the entire service and expose the API through the bubble.
 > > * At this point it becomes clear that our config will be hidden in the rapped bubbles and do not neccessarily forms part of our service.
