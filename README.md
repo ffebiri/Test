@@ -1,6 +1,6 @@
 # Microservices - A practical guide
 <p>
-In years past most organizations have built their applications using the monolithic architecture, popularly known as `Spaghetti architecture` Where all applications are packed in a single bucket. Howerver, with the mordern change in technology and the quest of big organization to scale up their applications to meet their client's expectations microservices is gradually becoming the new order of the day.       
+In years past most organizations have built their applications using the monolithic architecture, popularly known as `Spaghetti architecture` Where all applications are packed in a single bucket. However, with the modern change in technology and the quest of big organization to scale up their applications to meet their client's expectations microservices is gradually becoming the new order of the day.       
 
 To get an idea of What **Microservices** is, you have to understand how  monolithic application is decomposed into small tiny micro applications which are packaged and deployed independently. 
 
