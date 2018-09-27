@@ -68,7 +68,7 @@ ___
 Enterprises are increasingly adopting containers when implementing microservice based applications,  and Docker has become the standard container implementation that has been adopted by most   software platforms and cloud vendors.
 
 > > * As mentioned above, the API is the only visible part from outside (You can only call the API)
-> > * What we want at this point is  to containerised this service, to do that in Docker, we will rap bubbles around the entire service and expose the API through the bubble.
+> > * What we want at this point is  to containerized this service using Docker, Imagine it this way as rapping bubbles around the entire service and exposing the API through the bubble..
 > > * At this point it becomes clear that our config will be hidden in the rapped bubbles and do not neccessarily forms part of our service.
 > > * configs are going to be supply from the bubbles we have rapped the service in and not from the service itself. That is to say, configs are going to be imported when starting or running the container.(coming from docker)
 > > * A practical reason behind this scenario above is that,if you move your DB to somewhere else, you don't need to go back to your code and change anything or build and test your application again, all you need is to replace the old config with new config. 
