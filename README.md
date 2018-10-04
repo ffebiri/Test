@@ -10,7 +10,7 @@ Now, before I get deep into microservices, let's look at the loose ends of the a
 
 ![](.gitbook/assets/mono.png)
 
-#### Challenges with the Monolithic Architecture
+### Challenges with the Monolithic Architecture
 
 > * Unscalable - Applications cannot be scaled easily since each time the application needs to be updated, the complete system has to be rebuilt.
 > * Blocks Continuous Development - Many features of an application cannot be built and deployed at the same time.
@@ -18,8 +18,6 @@ Now, before I get deep into microservices, let's look at the loose ends of the a
 > * Unreliable - If even one feature of the system does not work, then the entire system does not work.
 > * Slow Development - Development in monolithic applications takes a lot of time to be built since each and every feature has to be built one after the other.
 > * Not Fit for Complex Applications - Features of complex applications have tightly coupled dependencies.
->
-> \*\*\*\*
 
 **Microservices**
 
@@ -29,7 +27,7 @@ Microservices is a variant of the service-oriented architecture \(SOA\), an arch
 
 In this writeup we will define microservice as _an architectural style that structures an application as a collection of small **autonomous** services, modeled around a business domain_.
 
-#### Why Choose Microservices?
+### Why Choose Microservices?
 
 > * Decoupling - Services within a system are largely decoupled, so the application as a whole can be easily built, altered, and scaled.
 > * Componentization - Microservices are treated as autonomous components that can be easily replaced and upgraded.
@@ -40,13 +38,13 @@ In this writeup we will define microservice as _an architectural style that stru
 > * Decentralized Governance - The focus is on using the right tool for the right job. That means there is no standardized pattern or any technology pattern. Developers have the freedom to choose the best useful tools to solve their problems.
 > * Agility - Microservices support agile development. Any new feature can be quickly developed and discarded again.
 
-#### Typical Microservices
+### Typical Microservices
 
 ![](.gitbook/assets/micros.png)
 
-### Structure of Microservice
+## Structure of Microservice
 
- We will at this point look at a single microservice as a collection of related functions or endpoints composing a bounded context within your business domain. Each microservice should be bound in such a way that it can own its own data and operate autonomously, communicating with other microservices via lightweight protocols only.
+We will at this point look at a single microservice as a collection of related functions or endpoints composing a bounded context within your business domain. Each microservice should be bound in such a way that it can own its own data and operate autonomously, communicating with other microservices via lightweight protocols only.
 
 > * Microservice as an autonomouse unit
 
@@ -67,21 +65,21 @@ Enterprises are increasingly adopting containers when implementing microservice 
 > > * What we want at this point is  to containerized this service using Docker, Imagine it this way as rapping bubbles around the entire service and exposing the API through the bubble..
 > > * At this point it becomes clear that our config will be hidden in the rapped bubbles and do not neccessarily forms part of our service.
 > > * configs are going to be supply from the bubbles we have rapped the service in and not from the service itself. That is to say, configs are going to be imported when starting or running the container.\(coming from docker\)
-> > * A practical reason behind this scenario above is that,if you move your DB to somewhere else, you don't need to go back to your code and change anything or build and test your application again, all you need is to replace the old config with new config. 
+> > * A practical reason behind this scenario above is that,if you move your DB to somewhere else, you don't need to go back to your code and change anything or build and test your application again, all you need is to replace the old config with new config.
 > >
 > >   [Read more on Docker container Config](https://docs.docker.com/edge/engine/reference/commandline/config/).
 
-### Inter service Communication
+## Inter service Communication
 
- Microservices-based application is a distributed system running on multiple processes or services, usually even across multiple servers or hosts. Each service instance is typically a process. Therefore, services must interact using an inter-process communication protocol.I will briefly discuss using Asynchonous Communication through a Message Queue
+Microservices-based application is a distributed system running on multiple processes or services, usually even across multiple servers or hosts. Each service instance is typically a process. Therefore, services must interact using an inter-process communication protocol.I will briefly discuss using Asynchonous Communication through a Message Queue
 
-### Asynchronous Communication
+## Asynchronous Communication
 
-Why Asynchronous ? - The key point we want to establish here is that the client should not have blocked a thread while waiting for a response. It doesn't really have to wait for a response. See this way of communication as a one way communication. Example, from the diagram below service A sends a request to MQ and doesn't have to wait for response, service B sends request to MQ and doesn't also have to wait for response, This one way of communication exist between all services. It just waits for acknowledgment that the message has been received by the Message Queue. 
+Why Asynchronous ? - The key point we want to establish here is that the client should not have blocked a thread while waiting for a response. It doesn't really have to wait for a response. See this way of communication as a one way communication. Example, from the diagram below service A sends a request to MQ and doesn't have to wait for response, service B sends request to MQ and doesn't also have to wait for response, This one way of communication exist between all services. It just waits for acknowledgment that the message has been received by the Message Queue.
 
 ![Asynchronous](.gitbook/assets/async.PNG)
 
-### KEY ISSUES
+## KEY ISSUES
 
 > * The question that is likely unanswered at this point is What happens if one service needs some real time data from another service?
 >
@@ -93,11 +91,11 @@ On the contrary, combination of data from multiple services is possible from the
 >
 >   > * Third part services mostly will be called directly or you can also use the integration service through the message queue.
 
-### Practical Microservice Template
+## Practical Microservice Template
 
 Now let us take a detail look into how a single service looks like in microservice. We will be looking at a detail template i have preapared specially for this project.This will help you to understand how you can configure your service. We will be taking Detail analysis of our Program.cs and startup.cs classes for now.
 
-> #### Program.cs
+> ### Program.cs
 
 ```text
 using System;
@@ -152,7 +150,7 @@ namespace Orion.Core.Template
 }
 ```
 
-### The Main Method
+## The Main Method
 
 ```text
 public static void Main(string[] args)
@@ -163,7 +161,7 @@ public static void Main(string[] args)
 
 The Main method is the entry point to a C\# application . When the application is started, the Main method is the first method that is invoked. Say this is where all the magic start.[Learn more about the main method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)
 
-### Set up a Host- Configuration
+## Set up a Host- Configuration
 
 In the `Main` method I have [CreateWebHostBuilder method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createwebhostbuilder?view=aspnetcore-2.1).This method create a host using an instance of [IWebHostBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder?view=aspnetcore-2.1) which creates configuration for the server. This is typically performed in the app's entry point, the `Main` method. In the project templates, `Main` is located in Program.cs. A typical Program.cs calls `CreateDefaultBuilder()` to start setting up a host: [CreateDefaultBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.1) .`CreateDefaultBuilder()` Initializes a new instance of the [WebHostBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder?view=aspnetcore-2.1) class with pre-configured defaults.
 
@@ -207,7 +205,7 @@ public IConfiguration Configuration { get; }
 
 > * This section will be dicussed in more detailed in the next documentation
 
-### Configure Services
+## Configure Services
 
 ```text
        public void ConfigureServices(IServiceCollection services)
@@ -291,7 +289,7 @@ In the template the following backgroud services have been added \(**Details of 
 >     services.AddHttpClient();
 >   ```
 >
-> * Tenant Configurations\(`load db settings + join them with secrets`. 
+> * Tenant Configurations\(`load db settings + join them with secrets`.
 >
 >   `Join connection strings with secrets later`\)
 
@@ -338,7 +336,7 @@ In the template the following backgroud services have been added \(**Details of 
    (we set our compactibilityversion to 2.1 to allow the service opt_in of potentially behaviour changes introduced by ASP.NET CORE MVC 2.1 or later)
 ```
 
-### The Configure method
+## The Configure method
 
 ```text
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
